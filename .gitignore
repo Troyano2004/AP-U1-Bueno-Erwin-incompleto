@@ -1,0 +1,7 @@
+out/
+*.class
+*.aux
+*.log
+!logs/*.log
+*.out
+*.toc
