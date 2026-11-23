@@ -2,9 +2,9 @@
 
 Aplicaciones Distribuidas (ISR-701) · UTEQ · Erwin Daniel Bueno Troya
 
-> **Versión incompleta (práctica).** Busca los `TODO` en `src/` y en `docs/informe.tex`.
-> Hecho: Parte A completa, Parte B en modo normal (TURNO, LLAMAR, ESTADO, cupo, token).
-> Pendiente: B2 PruebaCarga, B3 modo `--inseguro`, Parte C (latidos), Parte D (reglas de Lamport y orden de OrdenTotal), mitad del informe.
+> **Versión incompleta (práctica, ~70 %).** Busca los `TODO` en `src/` y en `docs/informe.tex`.
+> Hecho: Parte A, Parte B completa (modo normal, `--inseguro` y PruebaCarga) y reglas de Lamport (D1, D2).
+> Pendiente: Parte C (latidos), orden de OrdenTotal (D3) y parte del informe.
 
 Java 21 con sockets TCP, sin bibliotecas externas. Un coordinador (id 0) y tres ventanillas (V1, V2, V3), cada una en su propio proceso.
 

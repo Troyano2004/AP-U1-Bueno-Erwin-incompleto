@@ -4,6 +4,7 @@
 \usepackage[spanish]{babel}
 \usepackage[margin=2.2cm]{geometry}
 \usepackage{graphicx}
+\usepackage{float}
 \usepackage{array}
 \sloppy
 
@@ -17,39 +18,82 @@
 \begin{document}
 \maketitle
 
-% NOTA: revisa cada cifra contra TU ejecucion (consola y logs) antes de entregar.
-
 \section*{Escenarios}
 
 \begin{center}
 \small
-\begin{tabular}{|m{0.7cm}|m{5.6cm}|m{8.4cm}|}
+\begin{tabular}{|m{0.7cm}|m{1.9cm}|m{12.1cm}|}
 \hline
 \textbf{Esc.} & \textbf{Captura} & \textbf{Qué se observó} \\ \hline
-E0 & \captura{e0.png} & Todos los adaptadores aparecen como \texttt{Disconnected}. Primer commit con el código de sesión 1. \\ \hline
-E1 & \captura{e1.png} & V1, V2 y V3 recibieron 1, 2 y 3; V1 recibió el 4. V2 llamó y recibió el 1 y V3 recibió el 2, en ese orden. \texttt{estado} muestra \texttt{emitidos=4} y \texttt{en\_espera=[3, 4]} desde cualquier ventanilla, porque todas preguntan al mismo coordinador. \\ \hline
-E2 & \captura{e2.png} & La undécima solicitud TURNO volvió como \texttt{RECHAZADA: cupo agotado (10 turnos)}. Un LLAMAR con la cola vacía devolvió \texttt{no hay turnos en espera}. El TURNO con token falso fue rechazado y quedó la línea \texttt{TOKEN\_RECHAZADO} en \texttt{coordinador.log}. \\ \hline
-E3 & \captura{e3.png} & Ver tabla de cifras abajo. \\ \hline
-E4 & \captura{e4.png} & % TODO
- \\ \hline
-E5 & \captura{e5.png} & % TODO
- \\ \hline
-E6 & \captura{e6.png} & % TODO
- \\ \hline
+E0 & \textit{(sin captura)} & No documentado. \\ \hline
+E1 & Figura 1 & V1, V2 y V3 recibieron los turnos 1, 2 y 3 y V1 recibió el 4. Después V2 llamó y le tocó el 1, y V3 llamó y le tocó el 2. El \texttt{estado} pedido desde V1 muestra \texttt{emitidos=4}, \texttt{ultimo\_llamado=2} y \texttt{en\_espera=[3, 4]}. Las ventanillas aparecen como \texttt{SIN\_REGISTRO} porque los latidos todavía no están implementados. \\ \hline
+E2 & Figura 2 & V1 pidió turnos hasta el 10 y el undécimo volvió como \texttt{RECHAZADA: cupo agotado (10 turnos)}. V2 envió un token falso y uno vacío, y los dos fueron rechazados (\texttt{token invalido} y \texttt{token ausente}); el coordinador los muestra en su consola. V3 llamó hasta vaciar la cola, que entregó del 3 al 10 en orden, y la última llamada volvió como \texttt{no hay turnos en espera}. \\ \hline
+E3 & Figuras 3, 4 y 5 & Ver la tabla de cifras. En modo normal la consola del coordinador muestra los rechazos antes que las asignaciones y los números desordenados, porque los 30 hilos corren a la vez y cada uno imprime cuando termina. En modo inseguro el coordinador imprime \texttt{turno 1 asignado} treinta veces. \\ \hline
+E4 & \textit{(sin captura)} & No se ejecutó: los latidos (Parte C) todavía no están implementados. \\ \hline
+E5 & Figura 6 & Con V1, V2 y V3 activas se detuvo el coordinador. Al pedir turno, V1 respondió que no pudo contactar al coordinador (\texttt{Connection refused}) y no entregó ningún número. Decidí que la ventanilla no invente números porque no conoce el último emitido, y cualquier número propio podría repetirse con el de otra ventanilla. \\ \hline
+E6 & \textit{(sin captura)} & No se ejecutó: OrdenTotal todavía no ordena los eventos. \\ \hline
 \end{tabular}
 \end{center}
 
+\begin{figure}[H]
+\centering
+\IfFileExists{img/e1.png}{\includegraphics[width=0.72\linewidth]{img/e1.png}}{\fbox{falta img/e1.png}}
+\caption{E1: operación normal con el coordinador y las tres ventanillas.}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\IfFileExists{img/e2.png}{\includegraphics[width=0.72\linewidth]{img/e2.png}}{\fbox{falta img/e2.png}}
+\caption{E2: cupo agotado, token inválido y ausente, y LLAMAR sin turnos en espera.}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\IfFileExists{img/e3_normal_coordinador.png}{\includegraphics[width=0.72\linewidth]{img/e3_normal_coordinador.png}}{\fbox{falta img/e3\_normal\_coordinador.png}}
+\caption{E3, modo normal: consola del coordinador durante PruebaCarga.}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\IfFileExists{img/e3_normal_pruebacarga.png}{\includegraphics[width=0.72\linewidth]{img/e3_normal_pruebacarga.png}}{\fbox{falta img/e3\_normal\_pruebacarga.png}}
+\caption{E3, modo normal: resultado de PruebaCarga.}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\IfFileExists{img/e3_inseguro.png}{\includegraphics[width=0.72\linewidth]{img/e3_inseguro.png}}{\fbox{falta img/e3\_inseguro.png}}
+\caption{E3, modo \texttt{--inseguro}: coordinador y resultado de PruebaCarga.}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\IfFileExists{img/e5.png}{\includegraphics[width=0.72\linewidth]{img/e5.png}}{\fbox{falta img/e5.png}}
+\caption{E5: coordinador detenido; V1 no entrega turno.}
+\end{figure}
+
 \section*{Cifras de E3 (PruebaCarga, 30 solicitudes, cupo 10)}
 
-% TODO: tabla con asignadas, rechazadas, numeros distintos y emitidos, modo normal y --inseguro
+\begin{center}
+\begin{tabular}{|l|c|c|}
+\hline
+ & \textbf{Normal} & \textbf{--inseguro} \\ \hline
+Asignadas & 10 & 30 \\
+Rechazadas & 20 & 0 \\
+Números distintos entregados & 10 (del 1 al 10) & 1 \\
+Turnos emitidos según el coordinador & 10 & 1 \\
+Tiempo total & 172 ms & 227 ms \\ \hline
+\end{tabular}
+\end{center}
+
+En modo inseguro las 30 solicitudes recibieron el número 1 (\texttt{Repetidos: \{1=30\}}): el coordinador entregó 30 turnos con un cupo de 10 y cree haber emitido uno solo.
 
 \section*{Pares causales en el orden total (E6)}
 
-% TODO: dos pares envio -> recepcion tomados de logs/orden_total.log
+No se documentaron, porque OrdenTotal todavía no ordena los eventos por marca de Lamport.
 
 \section*{Preguntas de análisis}
 
-\textbf{1. Modo inseguro.} En el modo \texttt{--inseguro} cada hilo lee \texttt{ultimoEmitido}, duerme 50 ms y luego escribe el valor leído más uno. Como los 30 hilos leyeron 0 dentro de esa ventana de 50 ms, todos calcularon 1 y todos pasaron la comprobación del cupo, que se hizo sobre el valor viejo. Es una condición de carrera sobre una sección crítica sin protección. En el modo normal la lectura, la comprobación del cupo, el incremento y el encolado están dentro de un \texttt{synchronized(candadoTurnos)}, que da exclusión mutua. El costo es que las solicitudes de turno se atienden una por una: los hilos esperan el candado y el coordinador pierde paralelismo justo en la operación más usada.
+\textbf{1. Modo inseguro.} En el modo \texttt{--inseguro} cada hilo lee \texttt{ultimoEmitido}, duerme 50 ms y después escribe el valor leído más uno. En mi corrida (figura 5) los 30 hilos leyeron 0 dentro de esa ventana de 50 ms, así que todos calcularon el 1 y todos pasaron la comprobación del cupo, que se hizo sobre el valor viejo. Es una condición de carrera en una sección crítica sin protección. En el modo normal la lectura, la comprobación del cupo, el incremento y el encolado están dentro de un \texttt{synchronized(candadoTurnos)}, que da exclusión mutua, y por eso la figura 4 muestra exactamente 10 números distintos. El costo es que los turnos se atienden de uno en uno: los hilos esperan el candado y el coordinador pierde paralelismo justo en la operación que más se usa.
 
 \textbf{2. E5 y CAP.} Mi sistema prefirió la consistencia. Cuando la ventanilla queda separada del coordinador (una partición, desde su punto de vista) rechaza el turno en lugar de inventarlo, o sea que elige C sobre A. Si cada ventanilla numerara sola con prefijo (V2-015) seguiría disponible y se conservaría la unicidad, porque el prefijo impide que dos ventanillas den el mismo código. Se perdería la numeración consecutiva global y el cupo de la jornada, ya que ninguna ventanilla sabe cuántos turnos dieron las otras.
 

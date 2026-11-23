@@ -1,0 +1,189 @@
+1;0;INICIO;modo=normal cupo=10 puerto=5000
+2;0;INICIO;modo=normal cupo=10 puerto=5000
+23;0;RECIBE_TURNO;de=V2 lamport_emisor=22
+24;0;RECIBE_TURNO;de=V2 lamport_emisor=5
+25;0;RECIBE_TURNO;de=V1 lamport_emisor=4
+26;0;RECIBE_TURNO;de=V2 lamport_emisor=11
+27;0;RECIBE_TURNO;de=V1 lamport_emisor=9
+28;0;RECIBE_TURNO;de=V3 lamport_emisor=6
+29;0;RECIBE_TURNO;de=V2 lamport_emisor=19
+30;0;RECIBE_TURNO;de=V2 lamport_emisor=2
+31;0;RECIBE_TURNO;de=V2 lamport_emisor=7
+32;0;RECIBE_TURNO;de=V2 lamport_emisor=26
+33;0;RECIBE_TURNO;de=V3 lamport_emisor=23
+34;0;RECIBE_TURNO;de=V3 lamport_emisor=24
+35;0;RECIBE_TURNO;de=V1 lamport_emisor=17
+36;0;RECIBE_TURNO;de=V3 lamport_emisor=13
+37;0;RECIBE_TURNO;de=V3 lamport_emisor=8
+38;0;RECIBE_TURNO;de=V1 lamport_emisor=29
+39;0;RECIBE_TURNO;de=V3 lamport_emisor=16
+40;0;RECIBE_TURNO;de=V2 lamport_emisor=25
+41;0;RECIBE_TURNO;de=V1 lamport_emisor=14
+42;0;RECIBE_TURNO;de=V3 lamport_emisor=1
+43;0;RECIBE_TURNO;de=V1 lamport_emisor=18
+44;0;RECIBE_TURNO;de=V3 lamport_emisor=12
+45;0;RECIBE_TURNO;de=V2 lamport_emisor=15
+46;0;RECIBE_TURNO;de=V1 lamport_emisor=10
+47;0;RECIBE_TURNO;de=V3 lamport_emisor=30
+48;0;RECIBE_TURNO;de=V1 lamport_emisor=3
+49;0;RECIBE_TURNO;de=V1 lamport_emisor=27
+50;0;RECIBE_TURNO;de=V1 lamport_emisor=20
+51;0;RECIBE_TURNO;de=V2 lamport_emisor=21
+52;0;RECIBE_TURNO;de=V3 lamport_emisor=28
+53;0;ENVIA_RECHAZADA;a=V3 motivo=cupo agotado (10)
+54;0;ENVIA_ASIGNADO;a=V2 turno=10
+55;0;ENVIA_ASIGNADO;a=V2 turno=2
+56;0;ENVIA_ASIGNADO;a=V2 turno=1
+57;0;ENVIA_RECHAZADA;a=V1 motivo=cupo agotado (10)
+58;0;ENVIA_ASIGNADO;a=V2 turno=8
+59;0;ENVIA_RECHAZADA;a=V2 motivo=cupo agotado (10)
+60;0;ENVIA_RECHAZADA;a=V1 motivo=cupo agotado (10)
+61;0;ENVIA_RECHAZADA;a=V2 motivo=cupo agotado (10)
+62;0;ENVIA_RECHAZADA;a=V2 motivo=cupo agotado (10)
+63;0;ENVIA_RECHAZADA;a=V1 motivo=cupo agotado (10)
+64;0;ENVIA_RECHAZADA;a=V3 motivo=cupo agotado (10)
+65;0;ENVIA_ASIGNADO;a=V2 turno=9
+66;0;ENVIA_RECHAZADA;a=V1 motivo=cupo agotado (10)
+67;0;ENVIA_RECHAZADA;a=V3 motivo=cupo agotado (10)
+68;0;ENVIA_RECHAZADA;a=V3 motivo=cupo agotado (10)
+69;0;ENVIA_RECHAZADA;a=V3 motivo=cupo agotado (10)
+70;0;ENVIA_RECHAZADA;a=V1 motivo=cupo agotado (10)
+71;0;ENVIA_RECHAZADA;a=V3 motivo=cupo agotado (10)
+72;0;ENVIA_RECHAZADA;a=V1 motivo=cupo agotado (10)
+73;0;ENVIA_RECHAZADA;a=V1 motivo=cupo agotado (10)
+74;0;ENVIA_RECHAZADA;a=V3 motivo=cupo agotado (10)
+75;0;ENVIA_RECHAZADA;a=V3 motivo=cupo agotado (10)
+76;0;ENVIA_RECHAZADA;a=V3 motivo=cupo agotado (10)
+77;0;ENVIA_ASIGNADO;a=V2 turno=4
+78;0;ENVIA_RECHAZADA;a=V1 motivo=cupo agotado (10)
+79;0;ENVIA_ASIGNADO;a=V2 turno=7
+80;0;ENVIA_ASIGNADO;a=V1 turno=5
+81;0;ENVIA_ASIGNADO;a=V1 turno=3
+82;0;ENVIA_ASIGNADO;a=V3 turno=6
+112;0;RECIBE_ESTADO;de=V1 lamport_emisor=111
+113;0;ENVIA_ESTADO;a=V1 emitidos=10 cupo=10 ultimo_llamado=0 en_espera=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10] ventanillas=V1:SIN_REGISTRO,V2:SIN_REGISTRO,V3:SIN_REGISTRO
+114;0;INICIO;modo=INSEGURO cupo=10 puerto=5000
+115;0;INICIO;modo=INSEGURO cupo=10 puerto=5000
+116;0;INICIO;modo=normal cupo=10 puerto=5000
+117;0;RECIBE_TURNO;de=V1 lamport_emisor=2
+118;0;ENVIA_ASIGNADO;a=V1 turno=1
+119;0;RECIBE_TURNO;de=V2 lamport_emisor=2
+120;0;ENVIA_ASIGNADO;a=V2 turno=2
+121;0;RECIBE_TURNO;de=V3 lamport_emisor=2
+122;0;ENVIA_ASIGNADO;a=V3 turno=3
+123;0;RECIBE_TURNO;de=V1 lamport_emisor=120
+124;0;ENVIA_ASIGNADO;a=V1 turno=4
+125;0;RECIBE_LLAMAR;de=V2 lamport_emisor=122
+126;0;ENVIA_LLAMADO;a=V2 turno=1
+127;0;RECIBE_LLAMAR;de=V3 lamport_emisor=124
+128;0;ENVIA_LLAMADO;a=V3 turno=2
+129;0;RECIBE_ESTADO;de=V1 lamport_emisor=126
+130;0;ENVIA_ESTADO;a=V1 emitidos=4 cupo=10 ultimo_llamado=2 en_espera=[3, 4] ventanillas=V1:SIN_REGISTRO,V2:SIN_REGISTRO,V3:SIN_REGISTRO
+133;0;RECIBE_TURNO;de=V1 lamport_emisor=132
+134;0;ENVIA_ASIGNADO;a=V1 turno=5
+137;0;RECIBE_TURNO;de=V1 lamport_emisor=136
+138;0;ENVIA_ASIGNADO;a=V1 turno=6
+141;0;RECIBE_TURNO;de=V1 lamport_emisor=140
+142;0;ENVIA_ASIGNADO;a=V1 turno=7
+145;0;RECIBE_TURNO;de=V1 lamport_emisor=144
+146;0;ENVIA_ASIGNADO;a=V1 turno=8
+149;0;RECIBE_TURNO;de=V1 lamport_emisor=148
+150;0;ENVIA_ASIGNADO;a=V1 turno=9
+153;0;RECIBE_TURNO;de=V1 lamport_emisor=152
+154;0;ENVIA_ASIGNADO;a=V1 turno=10
+157;0;RECIBE_TURNO;de=V1 lamport_emisor=156
+158;0;ENVIA_RECHAZADA;a=V1 motivo=cupo agotado (10)
+159;0;RECIBE_TURNO;de=V2 lamport_emisor=128
+160;0;TOKEN_RECHAZADO;de=V2 tipo=TURNO motivo=token invalido
+163;0;RECIBE_TURNO;de=V2 lamport_emisor=162
+164;0;TOKEN_RECHAZADO;de=V2 tipo=TURNO motivo=token ausente
+165;0;RECIBE_LLAMAR;de=V3 lamport_emisor=130
+166;0;ENVIA_LLAMADO;a=V3 turno=3
+169;0;RECIBE_LLAMAR;de=V3 lamport_emisor=168
+170;0;ENVIA_LLAMADO;a=V3 turno=4
+173;0;RECIBE_LLAMAR;de=V3 lamport_emisor=172
+174;0;ENVIA_LLAMADO;a=V3 turno=5
+177;0;RECIBE_LLAMAR;de=V3 lamport_emisor=176
+178;0;ENVIA_LLAMADO;a=V3 turno=6
+181;0;RECIBE_LLAMAR;de=V3 lamport_emisor=180
+182;0;ENVIA_LLAMADO;a=V3 turno=7
+185;0;RECIBE_LLAMAR;de=V3 lamport_emisor=184
+186;0;ENVIA_LLAMADO;a=V3 turno=8
+189;0;RECIBE_LLAMAR;de=V3 lamport_emisor=188
+190;0;ENVIA_LLAMADO;a=V3 turno=9
+193;0;RECIBE_LLAMAR;de=V3 lamport_emisor=192
+194;0;ENVIA_LLAMADO;a=V3 turno=10
+197;0;RECIBE_LLAMAR;de=V3 lamport_emisor=196
+198;0;ENVIA_RECHAZADA;a=V3 motivo=no hay turnos en espera
+199;0;RECIBE_ESTADO;de=V2 lamport_emisor=166
+200;0;ENVIA_ESTADO;a=V2 emitidos=10 cupo=10 ultimo_llamado=10 en_espera=[] ventanillas=V1:SIN_REGISTRO,V2:SIN_REGISTRO,V3:SIN_REGISTRO
+201;0;INICIO;modo=INSEGURO cupo=10 puerto=5000
+202;0;RECIBE_TURNO;de=V2 lamport_emisor=126
+203;0;RECIBE_TURNO;de=V3 lamport_emisor=130
+204;0;RECIBE_TURNO;de=V1 lamport_emisor=135
+205;0;RECIBE_TURNO;de=V3 lamport_emisor=139
+206;0;RECIBE_TURNO;de=V3 lamport_emisor=134
+207;0;RECIBE_TURNO;de=V2 lamport_emisor=133
+208;0;RECIBE_TURNO;de=V2 lamport_emisor=118
+209;0;RECIBE_TURNO;de=V1 lamport_emisor=142
+210;0;RECIBE_TURNO;de=V3 lamport_emisor=137
+211;0;RECIBE_TURNO;de=V2 lamport_emisor=115
+212;0;RECIBE_TURNO;de=V1 lamport_emisor=129
+213;0;RECIBE_TURNO;de=V3 lamport_emisor=124
+214;0;RECIBE_TURNO;de=V1 lamport_emisor=138
+215;0;RECIBE_TURNO;de=V1 lamport_emisor=117
+216;0;RECIBE_TURNO;de=V1 lamport_emisor=116
+217;0;RECIBE_TURNO;de=V1 lamport_emisor=143
+218;0;RECIBE_TURNO;de=V2 lamport_emisor=128
+219;0;RECIBE_TURNO;de=V1 lamport_emisor=119
+220;0;RECIBE_TURNO;de=V3 lamport_emisor=132
+221;0;RECIBE_TURNO;de=V3 lamport_emisor=131
+222;0;RECIBE_TURNO;de=V3 lamport_emisor=125
+223;0;RECIBE_TURNO;de=V3 lamport_emisor=127
+224;0;RECIBE_TURNO;de=V1 lamport_emisor=122
+225;0;RECIBE_TURNO;de=V2 lamport_emisor=121
+226;0;RECIBE_TURNO;de=V2 lamport_emisor=120
+227;0;RECIBE_TURNO;de=V2 lamport_emisor=123
+228;0;RECIBE_TURNO;de=V3 lamport_emisor=136
+229;0;RECIBE_TURNO;de=V1 lamport_emisor=144
+230;0;RECIBE_TURNO;de=V2 lamport_emisor=141
+231;0;RECIBE_TURNO;de=V2 lamport_emisor=140
+232;0;ENVIA_ASIGNADO;a=V3 turno=1
+233;0;ENVIA_ASIGNADO;a=V2 turno=1
+234;0;ENVIA_ASIGNADO;a=V2 turno=1
+235;0;ENVIA_ASIGNADO;a=V3 turno=1
+236;0;ENVIA_ASIGNADO;a=V3 turno=1
+237;0;ENVIA_ASIGNADO;a=V3 turno=1
+238;0;ENVIA_ASIGNADO;a=V2 turno=1
+239;0;ENVIA_ASIGNADO;a=V3 turno=1
+240;0;ENVIA_ASIGNADO;a=V1 turno=1
+241;0;ENVIA_ASIGNADO;a=V3 turno=1
+242;0;ENVIA_ASIGNADO;a=V2 turno=1
+243;0;ENVIA_ASIGNADO;a=V1 turno=1
+244;0;ENVIA_ASIGNADO;a=V2 turno=1
+245;0;ENVIA_ASIGNADO;a=V1 turno=1
+246;0;ENVIA_ASIGNADO;a=V1 turno=1
+247;0;ENVIA_ASIGNADO;a=V1 turno=1
+248;0;ENVIA_ASIGNADO;a=V1 turno=1
+249;0;ENVIA_ASIGNADO;a=V3 turno=1
+250;0;ENVIA_ASIGNADO;a=V3 turno=1
+251;0;ENVIA_ASIGNADO;a=V1 turno=1
+252;0;ENVIA_ASIGNADO;a=V3 turno=1
+253;0;ENVIA_ASIGNADO;a=V1 turno=1
+254;0;ENVIA_ASIGNADO;a=V2 turno=1
+255;0;ENVIA_ASIGNADO;a=V1 turno=1
+256;0;ENVIA_ASIGNADO;a=V2 turno=1
+257;0;ENVIA_ASIGNADO;a=V1 turno=1
+258;0;ENVIA_ASIGNADO;a=V3 turno=1
+259;0;ENVIA_ASIGNADO;a=V2 turno=1
+260;0;ENVIA_ASIGNADO;a=V2 turno=1
+261;0;ENVIA_ASIGNADO;a=V2 turno=1
+287;0;RECIBE_ESTADO;de=V1 lamport_emisor=286
+288;0;ENVIA_ESTADO;a=V1 emitidos=1 cupo=10 ultimo_llamado=0 en_espera=[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1] ventanillas=V1:SIN_REGISTRO,V2:SIN_REGISTRO,V3:SIN_REGISTRO
+289;0;INICIO;modo=normal cupo=10 puerto=5000
+290;0;RECIBE_TURNO;de=V1 lamport_emisor=161
+291;0;ENVIA_ASIGNADO;a=V1 turno=1
+292;0;RECIBE_TURNO;de=V2 lamport_emisor=203
+293;0;ENVIA_ASIGNADO;a=V2 turno=2
+294;0;RECIBE_LLAMAR;de=V3 lamport_emisor=201
+295;0;ENVIA_LLAMADO;a=V3 turno=1

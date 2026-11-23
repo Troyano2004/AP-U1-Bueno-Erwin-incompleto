@@ -165,9 +165,13 @@ public class Coordinador {
 
     /** B3: lectura y escritura separadas por 50 ms, sin candado. Solo para E3. */
     private int turnoInseguro() {
-        // TODO B3: leer ultimoEmitido, comprobar el cupo, dormir 50 ms y luego
-        // escribir leido + 1, SIN candado. Agregar el numero a enEspera.
-        return -1;
+        int leido = ultimoEmitido;               // 1) lectura
+        if (leido >= cupo) return -1;
+        try { Thread.sleep(50); } catch (InterruptedException ignorada) { }
+        ultimoEmitido = leido + 1;               // 2) escritura (puede pisar a otro hilo)
+        int numero = leido + 1;
+        synchronized (candadoTurnos) { enEspera.addLast(numero); } // solo para no romper la cola
+        return numero;
     }
 
     // ----------------------------------------------------------------- LLAMAR

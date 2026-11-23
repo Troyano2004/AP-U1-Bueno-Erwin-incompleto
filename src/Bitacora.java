@@ -43,7 +43,7 @@ public class Bitacora {
     }
 
     public synchronized long evento(String evento, String detalle, boolean registrar) {
-        // TODO D1: incrementar el reloj en 1 antes del evento local o envio
+        reloj++;
         if (registrar) escribir(evento, detalle);
         return reloj;
     }
@@ -54,7 +54,7 @@ public class Bitacora {
     }
 
     public synchronized long recibir(long recibido, String evento, String detalle, boolean registrar) {
-        // TODO D1: al recibir, fijar el reloj en max(local, recibido) + 1
+        reloj = Math.max(reloj, recibido) + 1;
         if (registrar) escribir(evento, detalle);
         return reloj;
     }

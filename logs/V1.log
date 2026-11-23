@@ -1,0 +1,26 @@
+1;1;INICIO;V1 inicia
+2;1;ENVIA_TURNO;a=coordinador
+119;1;RECIBE_ASIGNADO;de=coordinador respuesta=1
+120;1;ENVIA_TURNO;a=coordinador
+125;1;RECIBE_ASIGNADO;de=coordinador respuesta=4
+126;1;ENVIA_ESTADO;a=coordinador
+131;1;RECIBE_ESTADO;de=coordinador respuesta=emitidos=4 cupo=10 ultimo_llamado=2 en_espera=[3, 4] ventanillas=V1:SIN_REGISTRO,V2:SIN_REGISTRO,V3:SIN_REGISTRO
+132;1;ENVIA_TURNO;a=coordinador
+135;1;RECIBE_ASIGNADO;de=coordinador respuesta=5
+136;1;ENVIA_TURNO;a=coordinador
+139;1;RECIBE_ASIGNADO;de=coordinador respuesta=6
+140;1;ENVIA_TURNO;a=coordinador
+143;1;RECIBE_ASIGNADO;de=coordinador respuesta=7
+144;1;ENVIA_TURNO;a=coordinador
+147;1;RECIBE_ASIGNADO;de=coordinador respuesta=8
+148;1;ENVIA_TURNO;a=coordinador
+151;1;RECIBE_ASIGNADO;de=coordinador respuesta=9
+152;1;ENVIA_TURNO;a=coordinador
+155;1;RECIBE_ASIGNADO;de=coordinador respuesta=10
+156;1;ENVIA_TURNO;a=coordinador
+159;1;RECIBE_RECHAZADA;de=coordinador respuesta=cupo agotado (10 turnos)
+160;1;INICIO;V1 inicia
+161;1;ENVIA_TURNO;a=coordinador
+292;1;RECIBE_ASIGNADO;de=coordinador respuesta=1
+293;1;ENVIA_TURNO;a=coordinador
+294;1;COORDINADOR_NO_DISPONIBLE;solicitud TURNO no atendida: Connection refused: getsockopt

@@ -1,0 +1,14 @@
+1;2;INICIO;V2 inicia
+2;2;ENVIA_TURNO;a=coordinador
+121;2;RECIBE_ASIGNADO;de=coordinador respuesta=2
+122;2;ENVIA_LLAMAR;a=coordinador
+127;2;RECIBE_LLAMADO;de=coordinador respuesta=1
+128;2;ENVIA_TURNO;a=coordinador token_prueba=token-falso
+161;2;RECIBE_RECHAZADA;de=coordinador respuesta=token invalido
+162;2;ENVIA_TURNO;a=coordinador token_prueba=
+165;2;RECIBE_RECHAZADA;de=coordinador respuesta=token ausente
+166;2;ENVIA_ESTADO;a=coordinador
+201;2;RECIBE_ESTADO;de=coordinador respuesta=emitidos=10 cupo=10 ultimo_llamado=10 en_espera=[] ventanillas=V1:SIN_REGISTRO,V2:SIN_REGISTRO,V3:SIN_REGISTRO
+202;2;INICIO;V2 inicia
+203;2;ENVIA_TURNO;a=coordinador
+294;2;RECIBE_ASIGNADO;de=coordinador respuesta=2
