@@ -1,0 +1,64 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage[margin=2.2cm]{geometry}
+\usepackage{graphicx}
+\usepackage{array}
+\sloppy
+
+% Inserta la captura si existe; si no, deja un recuadro para no romper la compilacion
+\newcommand{\captura}[1]{\IfFileExists{img/#1}{\includegraphics[width=\linewidth]{img/#1}}{\fbox{\parbox{0.9\linewidth}{\centering\small falta img/#1}}}}
+
+\title{AP-U1 · TurnoJusto: turnos de atención distribuidos}
+\author{Erwin Daniel Bueno Troya\\Aplicaciones Distribuidas (ISR-701) · UTEQ}
+\date{23 de noviembre de 2026}
+
+\begin{document}
+\maketitle
+
+% NOTA: revisa cada cifra contra TU ejecucion (consola y logs) antes de entregar.
+
+\section*{Escenarios}
+
+\begin{center}
+\small
+\begin{tabular}{|m{0.7cm}|m{5.6cm}|m{8.4cm}|}
+\hline
+\textbf{Esc.} & \textbf{Captura} & \textbf{Qué se observó} \\ \hline
+E0 & \captura{e0.png} & Todos los adaptadores aparecen como \texttt{Disconnected}. Primer commit con el código de sesión 1. \\ \hline
+E1 & \captura{e1.png} & V1, V2 y V3 recibieron 1, 2 y 3; V1 recibió el 4. V2 llamó y recibió el 1 y V3 recibió el 2, en ese orden. \texttt{estado} muestra \texttt{emitidos=4} y \texttt{en\_espera=[3, 4]} desde cualquier ventanilla, porque todas preguntan al mismo coordinador. \\ \hline
+E2 & \captura{e2.png} & La undécima solicitud TURNO volvió como \texttt{RECHAZADA: cupo agotado (10 turnos)}. Un LLAMAR con la cola vacía devolvió \texttt{no hay turnos en espera}. El TURNO con token falso fue rechazado y quedó la línea \texttt{TOKEN\_RECHAZADO} en \texttt{coordinador.log}. \\ \hline
+E3 & \captura{e3.png} & Ver tabla de cifras abajo. \\ \hline
+E4 & \captura{e4.png} & % TODO
+ \\ \hline
+E5 & \captura{e5.png} & % TODO
+ \\ \hline
+E6 & \captura{e6.png} & % TODO
+ \\ \hline
+\end{tabular}
+\end{center}
+
+\section*{Cifras de E3 (PruebaCarga, 30 solicitudes, cupo 10)}
+
+% TODO: tabla con asignadas, rechazadas, numeros distintos y emitidos, modo normal y --inseguro
+
+\section*{Pares causales en el orden total (E6)}
+
+% TODO: dos pares envio -> recepcion tomados de logs/orden_total.log
+
+\section*{Preguntas de análisis}
+
+\textbf{1. Modo inseguro.} En el modo \texttt{--inseguro} cada hilo lee \texttt{ultimoEmitido}, duerme 50 ms y luego escribe el valor leído más uno. Como los 30 hilos leyeron 0 dentro de esa ventana de 50 ms, todos calcularon 1 y todos pasaron la comprobación del cupo, que se hizo sobre el valor viejo. Es una condición de carrera sobre una sección crítica sin protección. En el modo normal la lectura, la comprobación del cupo, el incremento y el encolado están dentro de un \texttt{synchronized(candadoTurnos)}, que da exclusión mutua. El costo es que las solicitudes de turno se atienden una por una: los hilos esperan el candado y el coordinador pierde paralelismo justo en la operación más usada.
+
+\textbf{2. E5 y CAP.} Mi sistema prefirió la consistencia. Cuando la ventanilla queda separada del coordinador (una partición, desde su punto de vista) rechaza el turno en lugar de inventarlo, o sea que elige C sobre A. Si cada ventanilla numerara sola con prefijo (V2-015) seguiría disponible y se conservaría la unicidad, porque el prefijo impide que dos ventanillas den el mismo código. Se perdería la numeración consecutiva global y el cupo de la jornada, ya que ninguna ventanilla sabe cuántos turnos dieron las otras.
+
+\textbf{3. Punto único de fallo.} % TODO
+
+\textbf{4. Falacias.} % TODO
+
+\section*{Limitación del prototipo}
+
+El contador y la cola de espera están solo en memoria. Si el coordinador se cae a media jornada, al reiniciarlo los turnos vuelven a empezar en 1 y se pierden los que estaban en espera.
+
+\end{document}
