@@ -5,3 +5,6 @@ out/
 !logs/*.log
 *.out
 *.toc
+
+.idea/
+*.iml
